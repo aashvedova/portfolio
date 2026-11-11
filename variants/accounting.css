@@ -249,3 +249,6 @@ figure.inline figcaption a { color: var(--ink); }
   .crow { grid-template-columns: 1fr; gap: 10px; }
 }
 .acc-hero + .asec { margin-top: 120px; } @media (max-width: 900px) { .acc-hero + .asec { margin-top: 56px; } }
+/* 11.11 alen: объяснялки решений как у инженеров — экран, стрелки, увеличенный фрагмент */
+.acc-ex { margin: 0; }
+.acc-ex img { width: 100%; height: auto; display: block; border-radius: var(--r); }
