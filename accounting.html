@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="ru" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Раздел «Работа» — Бухгалтерская платформа — Саша Шведова</title>
+<meta name="description" content="Кейс: от просьбы добавить колонку в таблицу к новой архитектуре бухгалтерской B2B-платформы. Задачи и отчётность как разные сущности в одном разделе «Работа».">
+<script>try{if(localStorage.getItem('theme')==='light')document.documentElement.setAttribute('data-theme','light')}catch(e){}</script>
+<link rel="stylesheet" href="variants/v.css">
+<link rel="stylesheet" href="variants/accounting.css">
+</head>
+<body><div class="wrap">
+<header class="topbar"><a class="topbar__name" href="index.html">Саша Шведова</a><nav aria-label="Разделы"><a href="index.html#work">Кейсы</a><a href="about.html">Обо мне</a><button class="tgl" type="button" aria-label="Сменить тему"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor"/></svg></button><a class="btn" href="index.html#contacts">Связаться</a></nav></header>
+
+<section class="ahero">
+  <h1 class="h1">Раздел «Работа»: от общей таблицы к персональному рабочему пространству</h1>
+  <ul class="btags" aria-label="Коротко о проекте"><li>Бухгалтерская платформа</li><li>B2B</li><li>SaaS</li><li>Архитектура</li><li>Дашборд бухгалтера</li><li>Используется</li></ul>
+  <a class="btn" href="#context">Читать кейс <i>↓</i></a>
+  <dl class="afacts"><div><dt>Продукт</dt><dd>B2B SaaS для бухгалтерских компаний: задачи, отчётность, чаты, биллинг</dd></div><div><dt>Моя роль</dt><dd>Product Designer: исследование, архитектура, дашборды, прототипы, проверка с пользователями</dd></div><div><dt>Статус</dt><dd>Реализовано, используется сотрудниками</dd></div></dl>
+  <figure class="shot ahero__shot"><img src="img/acc-cover.webp" width="1671" height="941" alt="Ноутбук с дашбордом бухгалтера: план задач на день, быстрые действия и чаты" loading="eager"></figure>
+</section>
+
+<section class="sec sec--t asec" id="context">
+  <h2 class="h2"><span class="dim">01</span> Контекст</h2>
+  <div class="atext"><p class="two-tone">Платформа для бухгалтерских компаний. <span>Сервис быстро рос, а удобство для бухгалтеров отставало.</span></p>
+  <p class="p">Три роли с разной ежедневной работой:</p></div>
+  <div class="aroles"><div class="acard"><span class="ico ico--sq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM4 20c1-4 4-6 8-6s7 2 8 6"/></svg></span><h3 class="h3">Бухгалтер</h3><p class="p">Ведёт задачи клиентов и общается с ними в чатах.</p></div><div class="acard"><span class="ico ico--sq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V6l8-3 8 3v14M9 20v-4h6v4M8 9h.01M12 9h.01M16 9h.01M8 12.5h.01M12 12.5h.01M16 12.5h.01"/></svg></span><h3 class="h3">Руководитель</h3><p class="p">Следит за просрочками, рисками и загрузкой.</p></div><div class="acard"><span class="ico ico--sq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM2.5 20c.8-3.6 3.3-5.5 6.5-5.5s5.7 1.9 6.5 5.5M16 4.5a3.5 3.5 0 0 1 0 6.5M18 14.8c1.9.7 3.1 2.4 3.5 5.2"/></svg></span><h3 class="h3">Менеджер по работе с клиентами</h3><p class="p">Сопровождает клиентов компании.</p></div></div>
+</section>
+
+<section class="sec sec--t asec" id="before">
+  <h2 class="h2"><span class="dim">02</span> Как было до</h2>
+  <div class="atext"><p class="two-tone">Все роли работали в одной огромной таблице задач. <span>Фильтры проблему не решали.</span></p>
+  <p class="p">Задачи, отчётность, КСО и требования лежали в разных разделах, хотя это одна работа.</p></div>
+  <figure class="inline"><img src="img/acc-before.webp" width="3014" height="1780" loading="lazy" alt="Было: общая таблица задач для всех ролей с двумя рядами фильтров, декларации по клиентам, статусы и дни просрочки"><figcaption>Было: общая таблица задач для всех ролей, свои задачи бухгалтер ищет фильтрами</figcaption></figure>
+</section>
+
+<section class="sec sec--t asec" id="problem">
+  <h2 class="h2"><span class="dim">03</span> Проблема</h2>
+  <div class="atext"><p class="two-tone">Один интерфейс на все роли. <span>Бухгалтер не понимал, с какой задачи начать.</span></p>
+  </div>
+  <div class="headload" role="img" aria-label="Что бухгалтер держал в голове: кто написал и где ответить, что грозит штрафом ФНС, что брать сейчас и сегодня, где свои задачи, а где коллег, ответил ли клиент, по каким клиентам закрыта задача, где отчётность, где нужное действие"><p class="headload__cap">У каждой строки свой чат, а бухгалтер сам искал ответы на вопросы:</p><div class="headload__stage"><div class="headload__me"><span>Бухгалтер</span></div><div class="hq hq--1"><span class="hq__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg></span><span><b>Кто написал?</b><small>и где ответить</small></span></div><div class="hq hq--2 hq--hot"><span class="hq__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l9 16H3z"/><path d="M12 10v4M12 17h.01"/></svg></span><span><b>Что грозит штрафом?</b><small>сроки ФНС</small></span></div><div class="hq hq--3"><span class="hq__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></span><span><b>Что брать сейчас?</b><small>и что сегодня</small></span></div><div class="hq hq--4"><span class="hq__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM2.5 20c.8-3.6 3.3-5.5 6.5-5.5s5.7 1.9 6.5 5.5M16 4.5a3.5 3.5 0 0 1 0 6.5M18 14.8c1.9.7 3.1 2.4 3.5 5.2"/></svg></span><span><b>Где мои задачи?</b><small>а где коллег</small></span></div><div class="hq hq--5"><span class="hq__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M10 13h5M10 17h5"/></svg></span><span><b>Клиент ответил?</b><small>и прислал ли документы</small></span></div><div class="hq hq--6"><span class="hq__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7l8-4 8 4-8 4z"/><path d="M4 12l8 4 8-4M4 17l8 4 8-4"/></svg></span><span><b>По кому закрыто?</b><small>одна задача — 10 клиентов</small></span></div><div class="hq hq--7"><span class="hq__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h6l2 2h10v11H3z"/></svg></span><span><b>Где отчётность?</b><small>задачи, КСО, требования отдельно</small></span></div><div class="hq hq--8"><span class="hq__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/></svg></span><span><b>Где нужное действие?</b><small>ищет по разделам сервиса</small></span></div><i class="hdot hdot--a">?</i><i class="hdot hdot--b">?</i><i class="hdot hdot--c">?</i></div></div>
+  <div class="atext">
+  <p class="p">Руководителю не хватало общей картины, а интерфейс был перегружен лишними действиями.</p>
+  <p class="two-tone">Итог — когнитивная нагрузка: <span>время уходило на то, чтобы приступить к работе.</span></p></div>
+</section>
+
+<section class="sec sec--t asec" id="research">
+  <h2 class="h2"><span class="dim">04</span> Исследование</h2>
+  <div class="atext"><p class="p">Спрашивала не о желаемых функциях, а о том, как люди работают и на чём принимают решения.</p>
+  </div>
+  <div class="methods"><div class="meth"><div class="meth__top"><span class="ico ico--sq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 9v11"/></svg></span><span class="meth__n">01</span></div><h3 class="h3">Анализ сервиса</h3><p>разделы и связи между ними</p></div><div class="meth"><div class="meth__top"><span class="ico ico--sq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span><span class="meth__n">02</span></div><h3 class="h3">Интервью</h3><p>бухгалтеры, руководители, менеджеры</p></div><div class="meth"><div class="meth__top"><span class="ico ico--sq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11"/><path d="M4 6l1 1 2-2M4 12l1 1 2-2M4 18l1 1 2-2"/></svg></span><span class="meth__n">03</span></div><h3 class="h3">Опрос по JTBD</h3><p>для каждой роли</p></div><div class="meth"><div class="meth__top"><span class="ico ico--sq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM4 20c1-4 4-6 8-6s7 2 8 6"/></svg></span><span class="meth__n">04</span></div><h3 class="h3">Персоны</h3><p>по реальным людям</p></div><div class="meth"><div class="meth__top"><span class="ico ico--sq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="18" r="2.5"/><circle cx="18" cy="6" r="2.5"/><path d="M8.5 18H15a3 3 0 0 0 0-6H9a3 3 0 0 1 0-6h6.5"/></svg></span><span class="meth__n">05</span></div><h3 class="h3">CJM «до» и «после»</h3><p>проверена на тестировании</p></div><div class="meth"><div class="meth__top"><span class="ico ico--sq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="11" height="13" rx="2"/><path d="M8 4h11a2 2 0 0 1 2 2v11"/></svg></span><span class="meth__n">06</span></div><h3 class="h3">Карточная сортировка</h3><p>новая навигация</p></div></div>
+  <figure class="inline"><img src="img/acc-jtbd.webp" width="3200" height="3286" loading="lazy" alt="JTBD бухгалтера и руководителя: 19 работ по ролям и типам задач, с целью и причиной"><figcaption>JTBD по ролям и типам задач</figcaption></figure>
+  <figure class="inline"><img src="img/acc-cjm.webp" width="4600" height="2070" loading="lazy" alt="CJM бухгалтера: рабочий день до и после"><figcaption>CJM бухгалтера: девять шагов рабочего дня до и после</figcaption></figure>
+  <figure class="inline"><img src="img/acc-flow.webp" width="4400" height="3892" loading="lazy" alt="Путь к задаче до и после: точки входа и клики на каждом шаге"><figcaption>Путь к задаче: 11–13 кликов в реестре против одного на рабочем столе (экспертный разбор)</figcaption></figure>
+</section>
+
+<section class="sec sec--t asec" id="insights">
+  <h2 class="h2"><span class="dim">05</span> Что показало исследование</h2>
+  <div class="finds">
+    <div class="rise"><h3>Нужен план, а не список задач</h3><p class="seen">Сроки, просрочки и то, что можно отложить.</p></div>
+    <div class="rise"><h3>Переписка — часть задачи</h3><p class="seen">Бухгалтеры постоянно переключаются между задачами и чатами.</p></div>
+    <div class="rise"><h3>У ролей разные приоритеты</h3><p class="seen">Бухгалтеру — дела на день, руководителю — контроль, менеджеру — сопровождение клиентов.</p></div>
+    <div class="rise"><h3>Разделам не хватало общего контекста</h3><p class="seen">Общие период и тип задач легли в основу области «Работа».</p></div>
+  </div>
+</section>
+
+<section class="sec sec--t asec" id="search">
+  <h2 class="h2"><span class="dim">06</span> Как искала решения</h2>
+  <div class="atext"><p class="p">Собрала схему архитектуры под работу каждой роли, затем схему процесса: на каждый шаг — референсы (Zendesk, Front, Intercom, Битрикс24) или своё решение.</p>
+  <p class="two-tone">Дальше — про бухгалтера: <span>для него я спроектировала новый флоу.</span></p></div>
+</section>
+
+<section class="sec sec--t asec" id="solution">
+  <h2 class="h2"><span class="dim">07</span> Решения</h2>
+  <article class="decision">
+    <h3 class="rise">Единая область «Работа»</h3>
+    <dl>
+      <div class="rise"><dt data-k="problem">Проблема</dt><dd>Связанные процессы жили в разных разделах.</dd></div>
+      <div class="rise"><dt data-k="solution">Решение</dt><dd>Одна область с общим периодом и типом задач, разделы внутри.</dd></div>
+      <div class="rise"><dt data-k="why">Почему</dt><dd>Общие параметры задаются один раз.</dd></div>
+    </dl>
+    <figure class="inline"><div class="ph" style="aspect-ratio:16/9"><span>Иллюстрация</span></div></figure>
+  </article>
+  <article class="decision">
+    <h3 class="rise">Рабочий стол бухгалтера</h3>
+    <dl>
+      <div class="rise"><dt data-k="problem">Проблема</dt><dd>Непонятно, с чего начать день.</dd></div>
+      <div class="rise"><dt data-k="solution">Решение</dt><dd>Рабочий стол отвечает: что делать сейчас, что упущено, кто написал и где ответить.</dd></div>
+      <div class="rise"><dt data-k="why">Почему</dt><dd>Приоритеты видны без просмотра всей очереди.</dd></div>
+    </dl>
+    <figure class="inline"><div class="ph" style="aspect-ratio:16/9"><span>Иллюстрация</span></div></figure>
+  </article>
+  <article class="decision">
+    <h3 class="rise">Канбан задач</h3>
+    <dl>
+      <div class="rise"><dt data-k="problem">Проблема</dt><dd>Не было картины задач и статусов.</dd></div>
+      <div class="rise"><dt data-k="solution">Решение</dt><dd>Канбан как часть рабочего стола. На карточке: приоритет, сроки, просрочка, новые документы и сообщения.</dd></div>
+      <div class="rise"><dt data-k="why">Совокупная задача</dt><dd>Одна работа на много клиентов — одна карточка со счётчиком.</dd></div>
+    </dl>
+    <figure class="inline"><div class="ph" style="aspect-ratio:16/9"><span>Иллюстрация</span></div></figure>
+  </article>
+  <article class="decision">
+    <h3 class="rise">Настраиваемый рабочий пульт</h3>
+    <dl>
+      <div class="rise"><dt data-k="problem">Проблема</dt><dd>Постоянные переключения между задачами и чатами.</dd></div>
+      <div class="rise"><dt data-k="solution">Решение</dt><dd>Панель с быстрыми действиями, чатами и уведомлениями; набор настраивает сам пользователь.</dd></div>
+      <div class="rise"><dt data-k="why">Почему</dt><dd>Один компонент для бухгалтера и менеджера.</dd></div>
+    </dl>
+    <figure class="inline"><div class="ph" style="aspect-ratio:16/9"><span>Иллюстрация</span></div></figure>
+  </article>
+</section>
+
+<section class="sec sec--t asec" id="checks">
+  <h2 class="h2"><span class="dim">08</span> Как проверяла решения</h2>
+  <div class="atext"><p class="p">Показывала решения пользователям и давала кликабельные прототипы.</p></div>
+  <article class="decision">
+    <dl>
+      <div class="rise"><dt data-k="problem">Что нашли</dt><dd>Нужно закреплять избранные чаты.</dd></div>
+      <div class="rise"><dt data-k="solution">Что изменила</dt><dd>Добавила закрепление в настройки пульта.</dd></div>
+    </dl>
+  </article>
+</section>
+
+<section class="sec sec--t asec" id="result">
+  <h2 class="h2"><span class="dim">09</span> Результат</h2>
+  <div class="ares"><p class="ares__txt">От общей таблицы — к рабочим пространствам под сценарии ролей.</p></div>
+  <div class="aledger"><div><span class="k">Реализовано</span><p class="p">Область «Работа», рабочий стол, канбан и пульт в работе у сотрудников.</p></div><div><span class="k">Обратная связь</span><p class="p">Новый формат оценили положительно.</p></div></div>
+
+  <h3 class="h3 biz__h">Что это дало бизнесу</h3>
+  <div class="bstats"><div class="bstat"><b>13 → 1</b><span>клик, чтобы начать рабочий день</span></div><div class="bstat"><b>4 → 0</b><span>вещей, которые бухгалтер держал в голове</span></div><div class="bstat"><b>2 роли</b><span>на одном компоненте пульта вместо двух рабочих мест</span></div><div class="bstat"><b>до 30</b><span>клиентов на бухгалтера — масштаб, под который спроектирован стол</span></div></div>
+  <div class="methods methods--2"><div class="meth biz"><span class="biz__k biz__k--f">Факт</span><h3 class="h3">Инициатива вместо правки</h3><p>Локальную задачу про чек-лист превратила в новую архитектуру раздела. Её согласовали директор и клиенты, раздел внедрён и работает.</p></div><div class="meth biz"><span class="biz__k biz__k--f">Факт</span><h3 class="h3">Дешевле развивать продукт</h3><p>Один компонент пульта закрывает две роли: команда развивает одно рабочее место, а не два.</p></div><div class="meth biz"><span class="biz__k">Эффект</span><h3 class="h3">Меньше риска штрафов ФНС</h3><p>Сроки и просрочки видны заранее. Для бухгалтерской компании штраф клиента — это деньги и доверие.</p></div><div class="meth biz"><span class="biz__k">Эффект</span><h3 class="h3">Больше клиентов на бухгалтера</h3><p>Время уходит на работу, а не на поиск задач. Это основа, чтобы расти без пропорционального найма.</p></div></div>
+  <p class="biz__note">Цифры 13 → 1 и 4 → 0 — экспертный разбор по интерфейсу до и после. Дальше эффект меряем по времени до начала работы, доле просрочек и обращениям в поддержку.</p>
+</section>
+
+
+<footer class="foot"><div class="lbl">Следующий кейс · бухгалтерская платформа</div><a href="accounting-lead.html">Дашборд руководителя ↗</a></footer>
+</div>
+<script>(function(){var r=document.documentElement;document.querySelector('.tgl').addEventListener('click',function(){var t=r.getAttribute('data-theme')==='light'?'dark':'light';r.setAttribute('data-theme',t);try{localStorage.setItem('theme',t)}catch(e){}})})()</script>
+</body></html>

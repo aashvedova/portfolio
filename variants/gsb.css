@@ -1,0 +1,61 @@
+/* Гольфстрим, вариант B: раскладка как у «Карты», свои блоки */
+.bstage .shot { border-radius: 24px; }
+.bwhy { display: grid; gap: 14px; }
+.bwhy__w { display: grid; gap: 4px; padding: 14px 18px; border-radius: 14px; box-shadow: inset 0 0 0 1px var(--line); font-size: 15px; line-height: 1.5; color: var(--mut); }
+.bpic { margin-top: 24px; border-radius: 20px; overflow: hidden; background: var(--panel); padding: clamp(16px, 3vw, 48px); }
+.bpic img { border-radius: 12px !important; }
+.bcap { margin-top: 12px; }
+.bpair { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
+.bpair--cap .bcap { margin-top: 0; }
+.bctx { display: grid; grid-template-columns: 1.3fr 1fr; gap: 48px; align-items: start; }
+.bnums { display: grid; border-top: 1px solid var(--line); }
+.bnums > div { display: grid; grid-template-columns: 1fr 1.2fr; gap: 16px; align-items: baseline; padding: 18px 0; border-bottom: 1px solid var(--line); }
+.bnums b { font-size: clamp(30px, 3vw, 44px); font-weight: 400; letter-spacing: -0.04em; line-height: 1; }
+.bnums span { font-size: 14px; color: var(--mut); }
+.broles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.broles .card { display: grid; gap: 10px; align-content: start; padding: 24px; }
+.broles .card b { font-size: 18px; font-weight: 500; margin-top: 10px; }
+.bzone { margin-top: 16px; display: grid; grid-template-columns: 200px 1fr; gap: 16px; padding: 22px 24px; border-radius: var(--rc); align-items: baseline; }
+.bprob { display: grid; gap: 32px; }
+.bprob .two-tone { max-width: 30ch; }
+.bprob__pic { display: block; border-radius: var(--r); overflow: hidden; background: var(--panel); padding: clamp(16px, 3vw, 48px); }
+.bprob__pic img { width: 100%; height: auto; display: block; border-radius: 12px; }
+.b3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 40px; }
+.b3 > div { display: grid; gap: 10px; align-content: start; padding-top: 20px; border-top: 1px solid var(--line); }
+.b3--learn { margin-top: 0; }
+.b3--learn .h3 { font-size: 22px; line-height: 1.3; }
+.b3--learn .h3 span { color: var(--dim); }
+.b3 + .gtask { margin-top: 40px; }
+.b4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+.b4 > div { display: grid; gap: 10px; align-content: start; padding-top: 20px; border-top: 1px solid var(--line); }
+.barts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.bart { display: flex; flex-direction: column; gap: 8px; }
+.bart__pic { display: block; aspect-ratio: 4 / 3; border-radius: 16px; overflow: hidden; background: var(--panel); margin-bottom: 8px; }
+.bart__pic img { width: 100%; height: 100%; object-fit: cover; object-position: left top; display: block; transition: transform .4s ease; }
+.bart:hover .bart__pic img { transform: scale(1.03); }
+.bart .p { font-size: 14px; }
+.bfind { margin-top: 48px; display: grid; grid-template-columns: 1fr 2.4fr; gap: 16px 48px; padding: 40px; border-radius: var(--r); background: var(--card); }
+.bfind__rows { display: grid; }
+.bfind__rows > div { display: grid; grid-template-columns: 1fr 24px 1fr; gap: 16px; align-items: baseline; padding: 16px 0; border-bottom: 1px solid var(--line); }
+.bfind__rows > div:first-child { padding-top: 0; }
+.bfind__rows > div:last-child { border-bottom: 0; padding-bottom: 0; }
+.bfind__rows i { font-style: normal; color: var(--dim); }
+.bdec-h { display: grid; grid-template-columns: 1fr 1.6fr; gap: 24px 48px; align-items: end; }
+.bdec-h .two-tone { font-size: clamp(22px, 2.4vw, 32px); max-width: none; }
+.bcheck { display: grid; gap: 48px; }
+.bcheck__h { display: grid; grid-template-columns: 1fr 1.6fr; gap: 24px 48px; align-items: end; }
+.bcheck__h .two-tone { font-size: clamp(22px, 2.4vw, 32px); max-width: none; }
+@media (prefers-reduced-motion: reduce) { .bart__pic img { transition: none; } }
+@media (max-width: 900px) {
+  .bctx, .bfind, .bdec-h, .bcheck__h, .bzone { grid-template-columns: 1fr; }
+  .broles, .b3, .b4, .bpair { grid-template-columns: 1fr; }
+  .barts { grid-template-columns: 1fr 1fr; gap: 16px; }
+  .bfind { padding: 24px; }
+  .bfind__rows > div { grid-template-columns: 1fr; gap: 6px; }
+  .bfind__rows i { display: none; }
+  .gscale { grid-template-columns: 1fr 1fr; row-gap: 24px; }
+}
+/* Акцент Гольфстрима: красный из интерфейса продукта вместо синего */
+:root, :root[data-theme="light"] { --blue: #d7262f; }
+.btags { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; padding: 0; margin: 0; max-width: 900px; }
+.btags li { font-size: 15px; line-height: 1; padding: 11px 16px; border-radius: 999px; background: var(--card2); color: var(--ink); }

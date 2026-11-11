@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MoveDaily — Саша Шведова</title>
+<meta name="description" content="Кейс: B2C-сервис коротких тренировок под ситуацию пользователя. Лендинг, личный кабинет, генерация, диагностика и подписка.">
+<script>try{if(localStorage.getItem('theme')==='dark')document.documentElement.setAttribute('data-theme','dark')}catch(e){}</script>
+<link rel="preload" href="fonts/onest-cyrillic-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/onest-cyrillic-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<div class="page case-movedaily">
+  <header class="topbar">
+    <a class="topbar__name" href="index.html">Саша Шведова</a>
+    <nav aria-label="Разделы">
+      <a href="index.html#work">Кейсы</a>
+      <a href="about.html">Обо мне</a>
+      <button class="theme" type="button" aria-pressed="false" aria-label="Тёмная тема"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor"/></svg></button>
+      <a class="btn" href="index.html#contacts">Связаться</a>
+    </nav>
+  </header>
+  <header class="cover wide">
+    <h1 class="display rise">Тренировка под ситуацию</h1>
+    <div class="cover__grid">
+      <p class="lead rise">MoveDaily. Короткие тренировки, когда нужно размяться после сна или работы, подготовиться к нагрузке или восстановиться.</p>
+      <dl class="facts rise">
+        <div><dt>Продукт</dt><dd>B2C-сервис персональных тренировок, web для desktop и mobile</dd></div>
+        <div><dt>Моя роль</dt><dd>Единственный продуктовый дизайнер, от лендинга до передачи в разработку</dd></div>
+        <div><dt>Статус</dt><dd>Запущен в 2025 году</dd></div>
+      </dl>
+    </div>
+    <figure class="cover__pic cover__pic--photo rise">
+      <img src="img/movedaily-landing.webp" width="1533" height="1026" alt="MoveDaily: лендинг на планшете">
+    </figure>
+  </header>
+
+  <div class="solo">
+      <section class="brief" aria-label="Коротко" data-shot="landing">
+        <dl class="facts">
+          <div class="rise"><dt data-k="problem">Проблема</dt><dd>Без тренера человек не понимает, что делать именно сейчас, и не видит, даёт ли практика результат.</dd></div>
+          <div class="rise"><dt data-k="solution">Что я сделала</dt><dd>Спроектировала весь продукт: лендинг, вход, личный кабинет, генерацию, тренировку, диагностику, спортивный сценарий, аналитику и подписку.</dd></div>
+          <div class="rise"><dt data-k="result">Результат</dt><dd>Продукт запущен. Момент появления paywall пока гипотеза, план проверки ниже.</dd></div>
+        </dl>
+      </section>
+
+      <section class="sec" aria-labelledby="h-context" data-shot="landing">
+        <h2 class="head rise" id="h-context">Контекст</h2>
+        <p class="measure rise">MoveDaily генерирует короткую тренировку под контекст: цель, уровень, инвентарь и результаты диагностики. Продуктом пользуются три группы людей с разными задачами.</p>
+        <figure class="inline"><img src="img/movedaily-landing.webp" width="1533" height="1026" loading="lazy" alt="Лендинг MoveDaily на планшете: заголовок «Двигайтесь свободнее каждый день» и кнопка начать"><figcaption>Лендинг объясняет ценность до авторизации</figcaption></figure>
+        <ul class="named sec-in">
+          <li class="rise"><b>Каждый день</b><span>Хотят быстро размяться после сна, работы или дороги, не ища упражнения.</span></li>
+          <li class="rise"><b>Спортсмены</b><span>Нужна разминка, заминка или восстановление под свой вид спорта: бег, зал, йога, единоборства.</span></li>
+          <li class="rise"><b>Следят за прогрессом</b><span>Важно видеть активность, зоны внимания и изменения между диагностиками.</span></li>
+        </ul>
+        <p class="measure sec-in rise"><b>Моя зона.</b> Я единственный дизайнер в продукте: сценарии и конкуренты, логика пути от лендинга до подписки, архитектура личного кабинета, интерфейс со всеми состояниями на desktop и mobile, спецификация для разработки.</p>
+      </section>
+
+      <section class="sec" aria-labelledby="h-path" data-shot="flow">
+        <h2 class="head rise" id="h-path">Путь пользователя</h2>
+        <p class="measure rise">Я проектировала не только личный кабинет, но и вход в продукт. Лендинг объясняет ценность и переводит интерес в первое действие: диагностику, генерацию тренировки или оформление доступа.</p>
+        <figure class="inline"><div class="ph" role="img" aria-label="Заглушка: Путь пользователя одной строкой: Лендинг → Вход → Выбор ситуации → Генерация → Тренировка → Диагностика → Прогресс → Подписка. Под шагами отметить, где появляется блок «Доступ» (после 3 генераций). Плоская схема в серых тонах."><b>Нужна картинка</b><span>Путь пользователя одной строкой: Лендинг → Вход → Выбор ситуации → Генерация → Тренировка → Диагностика → Прогресс → Подписка. Под шагами отметить, где появляется блок «Доступ» (после 3 генераций). Плоская схема в серых тонах.</span></div><figcaption>Путь от лендинга до подписки</figcaption></figure>
+        <article class="decision sec-in" data-shot="landing">
+          <h3 class="rise">Сначала ценность, потом регистрация</h3>
+          <dl>
+            <div class="rise"><dt data-k="problem">Альтернатива</dt><dd>Регистрация сразу при входе, без объяснения, зачем продукт.</dd></div>
+            <div class="rise"><dt data-k="solution">Решение</dt><dd>Лендинг показывает, что человек получит, и только потом просит авторизоваться.</dd></div>
+            <div class="rise"><dt data-k="why">Почему</dt><dd>Человек, который ещё не понял ценность, уходит на первой же форме.</dd></div>
+          </dl>
+        </article>
+      </section>
+
+
+    <section class="sec" aria-labelledby="h-decisions">
+      <h2 class="head rise" id="h-decisions">Ключевые решения</h2>
+      <article class="decision" data-shot="dashboard">
+        <h3 class="rise">Дашборд как центр продукта</h3>
+        <dl>
+          <div class="rise"><dt data-k="solution">Решение</dt><dd>Главный экран собирает всё, с чего начинается действие: остаток доступа, виды тренировок, активную тренировку, диагностику и активность.</dd></div>
+          <div class="rise"><dt data-k="why">Почему</dt><dd>С любого входа человек за один экран понимает, что делать дальше: продолжить начатое или выбрать новое.</dd></div>
+        </dl>
+        <figure class="inline"><img src="img/movedaily-hand.webp" width="1200" height="1200" loading="lazy" alt="Дашборд MoveDaily на телефоне: приветствие, промо Премиум, доступные тренировки, виды тренировок, активность и диагностика"><figcaption>Дашборд: доступ, виды тренировок, активность, диагностика</figcaption></figure>
+      </article>
+      <article class="decision" data-shot="kinds">
+        <h3 class="rise">Ситуация вместо упражнений</h3>
+        <dl>
+          <div class="rise"><dt data-k="problem">Проблема</dt><dd>Новичок не знает, какие упражнения ему нужны, и не должен это знать.</dd></div>
+          <div class="rise"><dt data-k="solution">Решение</dt><dd>Генерация разделена на понятные сценарии: свободная тренировка, программа, тренировка по диагностике и спорт. Уровень, инвентарь и формат продукт учитывает сам.</dd></div>
+        </dl>
+        <figure class="inline"><div class="ph" role="img" aria-label="Заглушка: Экран «Виды тренировок»: четыре сценария на выбор (свободная тренировка, программа, по диагностике, спорт) и параметры, которые учитывает генерация: уровень, инвентарь, формат. Скрин из макета, desktop."><b>Нужна картинка</b><span>Экран «Виды тренировок»: четыре сценария на выбор (свободная тренировка, программа, по диагностике, спорт) и параметры, которые учитывает генерация: уровень, инвентарь, формат. Скрин из макета, desktop.</span></div><figcaption>Пользователь выбирает ситуацию, а не упражнения</figcaption></figure>
+      </article>
+      <article class="decision" data-shot="sport">
+        <h3 class="rise">Спорт как отдельный вход</h3>
+        <dl>
+          <div class="rise"><dt data-k="problem">Альтернатива</dt><dd>Спорт как фильтр или тег внутри общей генерации.</dd></div>
+          <div class="rise"><dt data-k="solution">Решение</dt><dd>Свой сценарий: вид спорта, затем разминка или заминка под эту нагрузку.</dd></div>
+          <div class="rise"><dt data-k="why">Почему</dt><dd>У спортсмена другая задача, подготовить тело к конкретной нагрузке. Тег не передаёт этот контекст в персонализацию.</dd></div>
+        </dl>
+        <figure class="inline"><div class="ph" role="img" aria-label="Заглушка: Спортивный сценарий: выбор вида спорта (бег, зал, йога, единоборства) → разминка или заминка → готовая тренировка. Три экрана подряд или флоу-схема."><b>Нужна картинка</b><span>Спортивный сценарий: выбор вида спорта (бег, зал, йога, единоборства) → разминка или заминка → готовая тренировка. Три экрана подряд или флоу-схема.</span></div><figcaption>Спорт: вид нагрузки → разминка или заминка</figcaption></figure>
+      </article>
+      <article class="decision" data-shot="training">
+        <h3 class="rise">Тренировка как управляемый сценарий</h3>
+        <dl>
+          <div class="rise"><dt data-k="solution">Решение</dt><dd>Видео упражнения, таймер, сторона тела и прогресс по упражнениям на одном экране. Прерванную тренировку можно продолжить с того же места.</dd></div>
+          <div class="rise"><dt data-k="why">Почему</dt><dd>Человек в процессе не читает: ему нужно видеть, что делать сейчас, сколько осталось и что дальше.</dd></div>
+        </dl>
+        <figure class="inline"><img src="img/movedaily-training.webp" width="1200" height="1500" loading="lazy" alt="Активная тренировка на телефоне: видео упражнения, прогресс 7 из 10 упражнений, время и кнопка продолжить"><figcaption>Тренировка: видео, прогресс, время</figcaption></figure>
+      </article>
+      <article class="decision" data-shot="access">
+        <h3 class="rise">Мягкий paywall после трёх генераций</h3>
+        <dl>
+          <div class="rise"><dt data-k="problem">Варианты</dt><dd>Paywall на регистрации, после одной генерации, после трёх, по времени. Сравнивала по риску для активации и силе повода оплатить.</dd></div>
+          <div class="rise"><dt data-k="solution">Решение</dt><dd>Три бесплатные генерации. Блок «Доступ» показывает остаток 3 → 2 → 1 → 0 и в нуле ведёт к подписке. В спецификации семь состояний доступа, включая истёкшую подписку.</dd></div>
+          <div class="rise"><dt data-k="why">Почему</dt><dd>Три генерации дают пройти всю петлю ценности: выбрать ситуацию, получить и сделать тренировку. Одной мало, чтобы почувствовать пользу, при семи пропадает повод платить.</dd></div>
+        </dl>
+        <figure class="inline"><img src="img/movedaily-access.webp" width="1200" height="1290" loading="lazy" alt="Состояния блока «Доступ»: остаток бесплатных генераций, безлимит Премиум, истёкшая подписка"><figcaption>Блок «Доступ»: остаток 3 → 2 → 1 → 0 и подписка</figcaption></figure>
+      </article>
+      <article class="decision" data-shot="analytics">
+        <h3 class="rise">Диагностика связывает тренировки и прогресс</h3>
+        <dl>
+          <div class="rise"><dt data-k="solution">Решение</dt><dd>Диагностика показывает зоны внимания на схеме тела и становится основой для тренировок по диагностике.</dd></div>
+          <div class="rise" data-shot="compare"><dt data-k="solution">Сравнение</dt><dd>Две диагностики можно сравнить по датам и увидеть, какие зоны стали лучше, а какие требуют внимания.</dd></div>
+          <div class="rise" data-shot="history"><dt data-k="solution">История</dt><dd>Календарь показывает не отдельную тренировку, а регулярность за месяц, и поддерживает привычку.</dd></div>
+        </dl>
+        <div class="zoom rise"><figure><img src="img/zoom/md-body.webp" width="922" height="1306" loading="lazy" alt="Зоны внимания: Проблемные зоны отмечены прямо на схеме тела."><figcaption><b>Зоны внимания</b> Проблемные зоны отмечены прямо на схеме тела.</figcaption></figure><figure class="zoom__wide"><img src="img/zoom/md-deltas.webp" width="1549" height="166" loading="lazy" alt="Что изменилось: Сравнение двух диагностик в процентах по каждой зоне."><figcaption><b>Что изменилось</b> Сравнение двух диагностик в процентах по каждой зоне.</figcaption></figure></div><!--/zoom-->
+        <figure class="inline"><img src="img/movedaily-analytics.webp" width="1600" height="1202" loading="lazy" alt="Аналитика: схема тела с зонами внимания по диагностике и график активности по дням"><figcaption>Аналитика: зоны внимания и активность</figcaption></figure>
+        <figure class="inline"><img src="img/movedaily-compare.webp" width="1600" height="1144" loading="lazy" alt="Результат сравнения двух диагностик: изменения по зонам тела в процентах и две схемы тела рядом"><figcaption>Сравнение двух диагностик по датам</figcaption></figure>
+        <figure class="inline"><img src="img/movedaily-history.webp" width="1600" height="1074" loading="lazy" alt="История тренировок: общий прогресс за месяц и календарь с тренировками по дням"><figcaption>История: регулярность за месяц</figcaption></figure>
+      </article>
+    </section>
+
+    <section class="sec" aria-labelledby="h-check" data-shot="access">
+      <h2 class="head rise" id="h-check">Что ещё не проверено</h2>
+      <p class="measure rise">Самое чувствительное место продукта — граница между бесплатным и платным. Момент и формулировку перехода к подписке на живых пользователях пока не проверяли, это гипотеза.</p>
+      <ul class="named sec-in">
+        <li class="rise"><b>Гипотеза</b><span>Человек платит после того, как хотя бы раз получил результат. Поэтому paywall стоит после первой ценности, а не на входе.</span></li>
+        <li class="rise"><b>Как проверить</b><span>A/B-тест момента paywall: после одной и после трёх генераций.</span></li>
+        <li class="rise"><b>Что смотреть</b><span>Конверсию из третьей генерации в оплату и уходы на экране «Доступ ограничен».</span></li>
+      </ul>
+    </section>
+  </div>
+
+  <section class="wide wide--field" aria-labelledby="h-result">
+    <h2 class="head rise" id="h-result">Что ушло в продукт</h2>
+    <ul class="figures">
+      <li class="rise"><b>3</b><span>группы пользователей со своими сценариями входа</span></li>
+      <li class="rise"><b>3</b><span>бесплатные генерации до подписки</span></li>
+      <li class="rise"><b>7</b><span>состояний доступа в спецификации, включая истёкшую подписку</span></li>
+    </ul>
+    <div class="wide__grid sec-in">
+      <p class="small src rise">Цифры после запуска в кейс пока не вошли.</p>
+      <div class="ledger-wrap rise">
+        <table class="ledger">
+          <thead><tr><th scope="col">Этап</th><th scope="col">Что именно</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Спроектировано</th><td>Лендинг, вход, личный кабинет, генерация, тренировка, диагностика, спорт, аналитика, история, подписка</td></tr>
+            <tr><th scope="row">Передано в разработку</th><td>Спецификация: правила доступа, сценарии, ограничения, пограничные случаи</td></tr>
+            <tr><th scope="row">Запущено</th><td>Продукт работает целиком, от лендинга до подписки</td></tr>
+            <tr><th scope="row">Гипотеза</th><td>Момент появления paywall после трёх генераций</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="wide" aria-labelledby="h-next">
+    <div class="wide__grid">
+      <h2 class="head rise" id="h-next">Что дальше</h2>
+      <ul class="named">
+        <li class="rise"><b>Первая тренировка</b><span>Онбординг до первой тренировки и понятнее объяснить выбор спорта.</span></li>
+        <li class="rise"><b>Персонализация</b><span>Рекомендации после диагностики и недельные цели.</span></li>
+        <li class="rise"><b>Paywall и рост</b><span>A/B-тесты момента paywall и CTA на лендинге и в блоке «Доступ».</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <footer class="wide next wide--field">
+    <p class="small">Следующий проект · Гольфстрим, в релизе</p>
+    <a href="golfstream.html">Четыре сервиса в одном окне <span aria-hidden="true">↗</span></a>
+  </footer>
+</div>
+<script src="site.js"></script>
+<script src="silk.js"></script>
+</body>
+</html>

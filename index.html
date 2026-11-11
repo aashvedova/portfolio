@@ -1,0 +1,300 @@
+<title>Саша Шведова</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Саша Шведова, Product Designer. Сложные B2B-системы: роли, статусы, права доступа, данные.">
+<script>try{if(localStorage.getItem('theme')==='dark')document.documentElement.setAttribute('data-theme','dark')}catch(e){}</script>
+<link rel="preload" href="fonts/onest-cyrillic-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/onest-cyrillic-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="site.css">
+<style>
+/* Home: about first (text + portrait), then four case cards, then figures, method and contact without case pictures. */
+.intro { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: var(--gap); }
+.intro__text { background: transparent; border-radius: var(--r); padding: var(--pad); display: grid; align-content: start; }
+/* The silk surface now covers the whole home page: a fixed layer behind every block. Requested by the owner. */
+/* Header: a floating glass pill, centred at the top, as on the owner's previous site */
+/* About block: frosted glass over the silk */
+.intro__text { background: color-mix(in srgb, var(--paper) 45%, transparent); -webkit-backdrop-filter: blur(28px) saturate(1.2); backdrop-filter: blur(28px) saturate(1.2); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--paper) 60%, transparent); }
+.intro__text > h1 { margin-top: var(--sp-4); }
+.page > .backdrop[data-silk] { position: fixed; inset: 0; z-index: -1; border-radius: 0; pointer-events: none; }
+.intro__text::before { display: none; }
+.intro__text { position: relative; overflow: hidden; isolation: isolate; }
+/* Soft volumetric light behind the intro: three blurred grey-milk blobs drifting slowly. Requested by the owner. */
+.intro__text::before { content: ""; position: absolute; inset: -20%; z-index: -1; /* taste-skill-ignore */
+  background:
+    radial-gradient(38% 42% at 78% 22%, #ffffff 0%, transparent 70%),
+    radial-gradient(46% 50% at 14% 92%, #cdd0cf 0%, transparent 72%),
+    radial-gradient(36% 40% at 94% 84%, #dfd9d0 0%, transparent 70%),
+    radial-gradient(50% 50% at 40% 40%, #f4f4f2 0%, transparent 80%);
+  filter: blur(24px); animation: drift 24s ease-in-out infinite alternate; }
+:root[data-theme="dark"] .intro__text::before { /* taste-skill-ignore */
+  background:
+    radial-gradient(38% 42% at 78% 22%, #2a2a29 0%, transparent 70%),
+    radial-gradient(42% 46% at 18% 88%, #0f0f0f 0%, transparent 72%),
+    radial-gradient(34% 38% at 92% 86%, #232220 0%, transparent 70%); }
+/* Flat home background: no shader and no drifting blobs. Requested by the owner. */
+.intro__text::before { content: none; }
+@keyframes drift { from { transform: translate3d(-3%, -2%, 0) scale(1); } to { transform: translate3d(3%, 2%, 0) scale(1.08); } }
+.intro__text h1 { max-width: 16ch; }
+.intro__text .lead { margin-top: var(--sp-3); }
+.intro__about { margin-top: var(--sp-5); display: grid; gap: var(--sp-2); max-width: var(--measure); }
+.intro__acts { display: flex; gap: var(--sp-2); flex-wrap: wrap; align-items: center; margin-top: var(--sp-5); }
+.btn--ghost { background: var(--tone); color: var(--ink); }
+.intro__pic { background: var(--field); border-radius: var(--r); overflow: hidden; min-height: clamp(560px, 86vh, 820px); position: relative; }
+.intro__pic img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
+/* Colour drop: on hover a soft gradient blob follows the cursor and tints the black-and-white portrait. Requested by the owner. */
+@property --drop { syntax: "<length>"; inherits: true; initial-value: 0px; }
+.intro__pic { --x: 50%; --y: 40%; --drop: 0px; transition: --drop .7s cubic-bezier(.2,.7,.2,1); }
+.intro__pic::after { content: ""; position: absolute; inset: 0; pointer-events: none; mix-blend-mode: color; /* taste-skill-ignore */
+  background: radial-gradient(circle at var(--x) var(--y), #c9a7ff 0, #ff9fb8 calc(var(--drop) * .45), #ffc98a calc(var(--drop) * .75), #8fe0d0 var(--drop));
+  -webkit-mask: radial-gradient(circle at var(--x) var(--y), #000 calc(var(--drop) * .55), transparent var(--drop));
+  mask: radial-gradient(circle at var(--x) var(--y), #000 calc(var(--drop) * .55), transparent var(--drop)); }
+@media (hover: hover) { .intro__pic.is-wet { --drop: clamp(220px, 26vw, 380px); } }
+
+.work { padding: var(--sp-5) 0; }
+.work__head { padding: 0 var(--pad); }
+.work__head { display: flex; justify-content: space-between; align-items: end; gap: var(--sp-3); flex-wrap: wrap; margin-bottom: var(--sp-5); }
+.cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--gap); }
+/* One block per case: picture and text share the paper background */
+.card { display: flex; flex-direction: column; gap: var(--sp-2); text-decoration: none; color: inherit; background: var(--paper); border-radius: var(--r); padding: 8px 8px clamp(20px, 2.4vw, 32px); transition: background .3s ease; }
+.card > :not(.card__shot) { padding: 0 clamp(12px, 1.6vw, 24px); }
+/* Picture slot: light grey until the owner sends the case pictures */
+.card__shot { position: relative; aspect-ratio: 16 / 10; border-radius: 14px; background: #e3e4e3; margin-bottom: var(--sp-1); overflow: hidden; }
+.card__shot img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+:root[data-theme="dark"] .card__shot { background: #d4d5d3; }
+.card .card__meta { margin-top: 0; }
+.card__go { margin-top: auto; }
+a.card:hover { background: color-mix(in srgb, var(--paper) 92%, var(--ink)); }
+.card__pic { position: relative; aspect-ratio: 4 / 3; border-radius: 14px; background: var(--field); overflow: hidden; }
+.card__pic img { position: absolute; left: clamp(20px, 2.6vw, 40px); top: clamp(20px, 2.6vw, 40px); width: 150%; max-width: none; border-radius: 12px 0 0 0; transform-origin: 0 0; transition: transform .8s cubic-bezier(.2,.7,.2,1); }
+.card:hover .card__pic img { transform: scale(1.03); }
+/* Cover renders from the owner's previous site fill the whole card */
+.card__pic--photo img, .card--wide .card__pic.card__pic--photo img { inset: 0; left: 0; right: 0; top: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 0; transform-origin: 50% 50%; }
+.card__pic .ph { position: absolute; inset: clamp(20px, 2.6vw, 40px); max-width: none; }
+.card__meta { display: flex; justify-content: space-between; gap: var(--sp-2); font-size: var(--s-small); color: var(--muted); margin-top: var(--sp-2); }
+.card__meta b { font-weight: 400; color: var(--ink); white-space: nowrap; }
+.card__title { font-size: var(--s-lead); line-height: 1.22; letter-spacing: -0.02em; font-weight: 500; }
+.card__go { font-size: var(--s-small); }
+.card--wide { grid-column: 1 / -1; }
+.card--wide .card__pic { aspect-ratio: 21 / 8; }
+.card--wide .card__pic img { width: 62%; left: auto; right: clamp(20px, 2.6vw, 40px); border-radius: 12px 12px 0 0; }
+a.card:hover .card__title { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: .2em; }
+
+.field-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--sp-3) var(--pad); align-items: end; }
+
+.ways { background: var(--paper); border-radius: var(--r); padding: var(--pad); display: grid; gap: var(--sp-5); }
+.ways__top { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--sp-3) var(--pad); align-items: start; min-height: 10rem; }
+.way { display: none; }
+.way.is-on { display: grid; gap: var(--sp-3); align-content: start; animation: way-in .35s ease; }
+.ways__ctl { display: grid; gap: var(--sp-2); }
+.ways__ctl input { width: 100%; appearance: none; -webkit-appearance: none; height: 8px; border-radius: 999px; background: var(--tone); margin: 0; cursor: pointer; }
+.ways__ctl input::-webkit-slider-thumb { -webkit-appearance: none; width: 32px; height: 32px; border-radius: 50%; background: var(--ink); border: 0; }
+.ways__ctl input::-moz-range-thumb { width: 32px; height: 32px; border-radius: 50%; background: var(--ink); border: 0; }
+.ways__names { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--sp-2); font-size: var(--s-small); }
+.ways__names button { all: unset; cursor: pointer; color: var(--muted); }
+.ways__names button:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-radius: 4px; }
+.ways__names li:nth-child(2) { text-align: center; }
+.ways__names li:nth-child(3) { text-align: right; }
+.ways__names .is-on button { color: var(--ink); }
+@keyframes way-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+
+.contact { background: var(--paper); border-radius: var(--r); padding: var(--pad); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--sp-5) var(--pad); }
+.prompt { color: var(--muted); margin-top: var(--sp-2); }
+.mailbox { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-2); background: var(--tone); border-radius: 999px; padding: 8px 8px 8px 24px; margin-top: var(--sp-4); min-height: 64px; flex-wrap: wrap; }
+.mailbox a { font-size: var(--s-lead); letter-spacing: -0.015em; text-decoration: none; overflow-wrap: anywhere; }
+.links { display: grid; gap: var(--sp-1); font-size: var(--s-lead); letter-spacing: -0.015em; align-content: start; }
+.links a { text-decoration: none; }
+.links a:hover { text-decoration: underline; }
+.legal { grid-column: 1 / -1; display: flex; justify-content: space-between; gap: var(--sp-2); flex-wrap: wrap; }
+
+@media (max-width: 900px) {
+  .card--wide .card__pic { aspect-ratio: 4 / 3; }
+  .intro, .cards, .field-head, .ways__top, .contact { grid-template-columns: minmax(0, 1fr); }
+  .intro__pic { min-height: 0; aspect-ratio: 3 / 4; }
+  .intro__text::before { animation: none; }
+  .ways__top { min-height: 0; }
+}
+@media (max-width: 560px) {
+  .ways__names { grid-template-columns: minmax(0, 1fr); }
+  .ways__names li:nth-child(n) { text-align: left; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .intro__pic { transition: none; }
+  .intro__text::before { animation: none; }
+  .way.is-on { animation: none; }
+  .card__pic img { transition: none; }
+}
+
+/* Product groups, as on affarts.ru: a product header, then a bento of the overview and its mini-cases. Requested by the owner. */
+.group { background: var(--paper); border-radius: var(--r); padding: 8px; }
+/* Groups are a third narrower than the page so the tiles read as compact previews, not full screens. Requested by the owner. */
+@media (min-width: 901px) { .group { width: min(100%, calc((100vw - 24px) / 1.5)); margin-inline: auto; } }
+.group + .group, .group + .cards { margin-top: var(--sp-4); }
+.group__head { display: flex; justify-content: space-between; align-items: end; gap: var(--sp-2); flex-wrap: wrap; padding: clamp(14px, 1.6vw, 22px) clamp(12px, 1.4vw, 20px) clamp(18px, 2.2vw, 32px); }
+.group__name { font-size: var(--s-lead); line-height: 1.2; letter-spacing: -0.02em; }
+.group__count { color: var(--muted); margin-top: 2px; font-size: var(--s-small); }
+.group__meta { color: var(--muted); }
+.group__meta b { font-weight: 400; color: var(--ink); }
+.bento { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 8px; }
+/* Every tile keeps the 16:10 proportion of the 1440×900 screens; the big one spans two rows, so it stays 16:10 too */
+.tile { aspect-ratio: 16 / 10; }
+.tile--big { aspect-ratio: auto; }
+/* The screen fills the whole tile; a soft wash at the top keeps the title readable */
+.tile { position: relative; display: flex; flex-direction: column; gap: 2px; overflow: hidden; border-radius: 18px; background: var(--field); color: var(--ink); text-decoration: none; padding: clamp(12px, 1.2vw, 18px); isolation: isolate; }
+.tile--big { grid-column: 1; grid-row: span 2; }
+.tile__pic { position: absolute; inset: 0; z-index: -2; }
+.tile__pic img { width: 100%; height: 100%; object-fit: cover; object-position: 0 0; transition: transform .8s cubic-bezier(.2,.7,.2,1); transform-origin: 0 0; }
+.tile::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: linear-gradient(180deg, color-mix(in srgb, var(--paper) 94%, transparent) 0, color-mix(in srgb, var(--paper) 80%, transparent) 70px, transparent 150px); }
+.tile--big::before { background: linear-gradient(180deg, color-mix(in srgb, var(--paper) 94%, transparent) 0, color-mix(in srgb, var(--paper) 78%, transparent) 80px, transparent 170px); }
+.tile__top { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: start; gap: 12px; }
+.tile__title { font-size: 0.9375rem; line-height: 1.3; letter-spacing: -0.005em; font-weight: 500; }
+.tile--big .tile__title { font-size: 1.1875rem; letter-spacing: -0.015em; }
+.tile__kind { font-size: 0.8125rem; color: var(--muted); }
+.tile__go { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--ink); color: var(--paper); transition: transform .35s cubic-bezier(.2,.7,.2,1); }
+.tile__go svg { width: 16px; height: 16px; }
+.tile:hover .tile__pic img { transform: scale(1.03); }
+.tile:hover .tile__go { transform: translate(2px, -2px); }
+.tile:hover .tile__title { text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: .2em; }
+/* Four tiles: the big one spans three small ones, so the columns are 3:1 to keep every tile at 16:10 */
+@media (min-width: 901px) { .bento--4 { grid-template-columns: minmax(0, 3fr) minmax(0, 1fr); } .bento--4 .tile--big { grid-row: span 3; } }
+/* Two tiles: side by side, equal, both 16:10 */
+.bento--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.bento--2 .tile--big { grid-column: auto; grid-row: auto; aspect-ratio: 16 / 10; }
+@media (max-width: 600px) { .bento--2 { grid-template-columns: minmax(0, 1fr); } }
+.tile--soon { background: var(--tone); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ink) 12%, transparent); }
+.tile--soon::before { content: none; }
+.cards--three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 1100px) { .cards--three { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 900px) {
+  .bento { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .tile--big { grid-column: 1 / -1; grid-row: span 1; aspect-ratio: 16 / 10; }
+}
+@media (max-width: 600px) { .bento { grid-template-columns: minmax(0, 1fr); } }
+
+/* Variant 1, chosen by the owner: the picture on top, live text below it; the arrow is a light-grey
+   circle in the picture's top-right corner, shown on hover (always shown on touch screens). */
+.tile, .tile--big, .bento--2 .tile--big { aspect-ratio: auto; padding: 6px; gap: 0; background: var(--tone); }
+.tile::before, .tile--big::before { content: none; }
+.tile__pic { position: relative; inset: auto; z-index: 0; order: -1; aspect-ratio: 16 / 10; border-radius: 14px; overflow: hidden; background: var(--field); }
+.tile--big .tile__pic { flex: 1 1 auto; aspect-ratio: auto; min-height: 0; }
+.bento--2 .tile--big .tile__pic { flex: none; aspect-ratio: 16 / 10; }
+/* Equal tiles get equal titles: the first tile is still marked big, so match the second to it */
+.bento--2 .tile .tile__title { font-size: 1.1875rem; letter-spacing: -0.015em; }
+.tile__pic img { position: absolute; inset: 0; }
+.tile__top { padding: 14px 10px 0; grid-template-columns: minmax(0, 1fr); }
+.tile__kind { padding: 2px 10px 12px; }
+.tile__go { position: absolute; top: 18px; right: 18px; z-index: 2; width: 40px; height: 40px; background: #e6e7e8; color: #141414; box-shadow: 0 4px 14px rgb(0 0 0 / .18); opacity: 0; transform: translate(-4px, 4px); transition: opacity .25s ease, transform .35s cubic-bezier(.2,.7,.2,1); }
+.tile:hover .tile__go, .tile:focus-visible .tile__go { opacity: 1; transform: none; }
+@media (hover: none) { .tile__go { opacity: 1; transform: none; } }
+.tile--soon { padding: clamp(14px, 1.4vw, 20px); }
+.tile--soon .tile__top, .tile--soon .tile__kind { padding-left: 0; padding-right: 0; }
+@media (prefers-reduced-motion: reduce) { .tile__pic img, .tile__go { transition: none; } }
+</style>
+
+<div class="page">
+  <header class="topbar">
+    <a class="topbar__name" href="index.html">Саша Шведова</a>
+    <nav aria-label="Разделы">
+      <a href="#work">Кейсы</a>
+      <a href="about.html">Обо мне</a>
+      <button class="theme" type="button" aria-pressed="false" aria-label="Тёмная тема"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor"/></svg></button>
+      <a class="btn" href="#contacts">Связаться</a>
+    </nav>
+  </header>
+  <header class="intro" id="about">
+    <div class="intro__text">
+      <h1 class="display rise">Пока не знаю, что написать</h1>
+      <div class="intro__acts rise">
+        <a class="btn" href="#work">Смотреть кейсы <span aria-hidden="true">↓</span></a>
+      </div>
+    </div>
+    <figure class="intro__pic" data-drop>
+      <img src="img/portrait.webp" width="640" height="640" alt="Саша Шведова, портрет">
+    </figure>
+  </header>
+
+  <section class="work" id="work" aria-labelledby="h-work">
+    <div class="work__head">
+      <h2 class="head rise" id="h-work">Кейсы</h2>
+      <p class="measure small rise">Четыре B2B-системы и один B2C-продукт: от структуры и сценариев до интерфейса и проверки на пользователях.</p>
+    </div>
+    <article class="group rise case-accounting" aria-label="Бухгалтерская платформа">
+      <header class="group__head">
+        <div><h3 class="group__name">Задачи и отчётность бухгалтерской компании</h3><p class="group__count">3 кейса</p></div>
+        <ul class="ctags"><li>Бухгалтерская платформа</li><li>B2B</li><li>SaaS</li><li>Бухгалтеры и руководители</li></ul>
+      </header>
+      <div class="bento">
+        <a class="tile tile--big rise" href="accounting.html">
+          <span class="tile__top"><span class="tile__title">Рабочий стол бухгалтера</span><span class="tile__go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span></span>
+          <span class="tile__kind"><ul class="ctags"><li>Бухгалтерская платформа</li><li>B2B</li><li>SaaS</li><li>Архитектура</li><li>Дашборд бухгалтера</li><li>Внедряется</li></ul></span>
+          <span class="tile__pic"><img src="img/acc-cover.webp" alt="" loading="lazy" style="object-position: 50% 50%"></span>
+        </a>
+        <a class="tile rise" href="accounting-lead.html">
+          <span class="tile__top"><span class="tile__title">Дашборд руководителя</span><span class="tile__go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span></span>
+          <span class="tile__kind"><ul class="ctags"><li>Руководитель компании</li><li>Внедряется</li></ul></span>
+          <span class="tile__pic"><img src="img/acc-lead-poster.webp" alt="" loading="lazy"></span>
+        </a>
+        <div class="tile tile--soon rise">
+          <span class="tile__top"><span class="tile__title">Чаты и омниканальность</span></span>
+          <span class="tile__kind">Скоро</span>
+        </div>
+      </div>
+    </article>
+    <article class="group rise case-field" aria-label="Выездные инженеры">
+      <header class="group__head">
+        <div><h3 class="group__name">Выездные инженеры</h3><p class="group__count">2 кейса</p></div>
+        <ul class="ctags"><li>B2B</li><li>Веб-система</li><li>Менеджеры и инженеры</li><li>Внедрено</li></ul>
+      </header>
+      <div class="bento bento--2">
+        <a class="tile tile--big rise" href="field-map.html">
+          <span class="tile__top"><span class="tile__title">Планирование выездов на карте</span><span class="tile__go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span></span>
+          <span class="tile__kind"><ul class="ctags"><li>B2B</li><li>Веб-система</li><li>Внедрено</li></ul></span>
+          <span class="tile__pic"><img src="img/field-map-cover.webp" alt="" style="object-position: 50% 30%" loading="lazy"></span>
+        </a>
+        <a class="tile rise" href="field-calendar.html">
+          <span class="tile__top"><span class="tile__title">Планирование сотрудников</span><span class="tile__go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span></span>
+          <span class="tile__kind"><ul class="ctags"><li>Смены и отпуска</li><li>30 сотрудников</li><li>Внедрено</li></ul></span>
+          <span class="tile__pic"><img src="img/field-calendar-cover.webp" alt="" loading="lazy" style="object-position: 50% 50%"></span>
+        </a>
+      </div>
+    </article>
+    <div class="cards cards--three">
+      <a class="card rise case-golfstream" href="golfstream.html">
+        <div class="card__shot"><img src="img/golfstream-cover.webp" alt="Гольфстрим: ноутбук с экраном входа в платформу" loading="lazy"></div>
+        <h3 class="card__title">Управление объектами охраны</h3>
+        <ul class="ctags"><li>Гольфстрим</li><li>B2B</li><li>Веб-платформа</li><li>Корпоративные клиенты</li><li>В релизе</li></ul>
+        <span class="card__go">Открыть кейс →</span>
+      </a>
+      <a class="card rise case-logistics" href="logistics.html">
+        <div class="card__shot"><img src="img/cargo-cover.webp" alt="Quottle: ноутбук с формой проверки данных перевозчика" loading="lazy"></div>
+        <h3 class="card__title">Портал логистов и перевозчиков</h3>
+        <ul class="ctags"><li>Quottle</li><li>B2B</li><li>Веб-портал</li><li>Логисты и перевозчики</li><li>Связь с 1С</li><li>В пилоте</li></ul>
+        <span class="card__go">Открыть кейс →</span>
+      </a>
+      <a class="card rise" href="movedaily.html">
+        <div class="card__shot"><img src="img/movedaily-landing.webp" alt="MoveDaily: лендинг на планшете" loading="lazy"></div>
+        <h3 class="card__title">Сервис коротких персональных тренировок</h3>
+        <ul class="ctags"><li>MoveDaily</li><li>B2C</li><li>Веб-сервис, desktop и mobile</li><li>Тренировки без тренера</li><li>Запущен</li></ul>
+        <span class="card__go">Открыть кейс →</span>
+      </a>
+    </div>
+  </section>
+
+  <footer class="contact" id="contacts">
+    <div>
+      <h2 class="head">Контакты</h2>
+      <p class="lead prompt">Напишите, обсудим задачу и команду.</p>
+      <div class="mailbox">
+        <a id="mail" href="mailto:alex.shvedovaa@gmail.com">alex.shvedovaa@gmail.com</a>
+        <button class="btn" id="copy" type="button"><span class="copy__label">Скопировать адрес</span></button>
+      </div>
+    </div>
+    <nav class="links" aria-label="Контакты">
+      <a href="https://t.me/shvedova_sasha" target="_blank" rel="noopener">Telegram @shvedova_sasha</a>
+      <a href="https://www.behance.net/shvedovasasha" target="_blank" rel="noopener">Behance</a>
+      <a href="golfstream.html">Кейс Гольфстрима</a>
+      <a href="logistics.html">Кейс Quottle</a>
+    </nav>
+    <p class="legal small"><span>© 2026 Саша Шведова</span><a href="#about">Наверх ↑</a></p>
+  </footer>
+</div>
+<script src="site.js"></script>
+<script src="silk.js"></script>
