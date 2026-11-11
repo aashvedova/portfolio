@@ -59,3 +59,38 @@
 :root, :root[data-theme="light"] { --blue: #d7262f; }
 .btags { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; padding: 0; margin: 0; max-width: 900px; }
 .btags li { font-size: 15px; line-height: 1; padding: 11px 16px; border-radius: 999px; background: var(--card2); color: var(--ink); }
+/* 11.11: единый лейаут кейсов — каждый раздел строкой .cside, медиа на всю ширину под строкой */
+.gthesis { font-size: clamp(22px, 2.2vw, 28px); line-height: 1.28; max-width: none; margin: 0; }
+.gkv { grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.gnums { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 16px; border-top: 1px solid var(--line); }
+.gnums > div { display: grid; gap: 8px; padding: 20px 20px 0 0; }
+.gnums > div + div { padding-left: 20px; border-left: 1px solid var(--line); }
+.gnums b { font-size: clamp(30px, 3vw, 44px); font-weight: 400; letter-spacing: -0.04em; line-height: 1; }
+.gnums span { font-size: 14px; color: var(--mut); }
+.gzone { display: grid; gap: 8px; padding: 22px 24px; border-radius: var(--rc); margin-top: 8px; }
+.gtask { display: grid; gap: 10px; padding: 24px 28px; border-radius: var(--rc); margin-top: 8px; }
+.gtask .two-tone { font-size: clamp(22px, 2.2vw, 28px); margin: 0; }
+.gcap-l { margin-top: 8px; }
+.gwide { margin: 48px 0 0; display: grid; gap: 12px; }
+.gwide .bpic { margin-top: 0; }
+.gwide.bpair { grid-template-columns: 1fr 1fr; gap: 16px; }
+.gwide.bpair figure { margin: 0; display: grid; gap: 12px; align-content: start; }
+.gmedia { margin-top: 48px; }
+.gdecs { display: grid; gap: 72px; margin-top: 72px; }
+.cside--sub { border-top: 0; padding-top: 0; }
+.gsub__t { font-size: clamp(22px, 2.2vw, 28px); line-height: 1.25; }
+.gtxt { color: var(--ink); font-size: 17px; }
+.gres2 .card { min-height: 140px; align-content: space-between; display: grid; gap: 16px; }
+.gres2 .big { font-size: clamp(40px, 4vw, 56px); font-weight: 400; letter-spacing: -0.04em; line-height: 1; }
+.glearn-t { font-size: 20px; line-height: 1.35; }
+.glearn-t span { color: var(--mut); }
+.cside__b .gscale { margin-top: 16px; }
+@media (max-width: 900px) {
+  .gkv, .gnums, .gwide.bpair { grid-template-columns: 1fr; }
+  .gnums > div, .gnums > div + div { padding: 16px 0; border-left: 0; border-bottom: 1px solid var(--line); }
+  .gwide, .gmedia { margin-top: 32px; }
+  .gdecs { gap: 48px; margin-top: 48px; }
+}
+/* 11.11, эталон вида: карточки только заливкой, без обводок */
+.bwhy__w { box-shadow: none; background: var(--card); }
+.gzone { background: var(--card); }

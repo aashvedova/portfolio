@@ -126,7 +126,12 @@ a.card:hover .card__title { text-decoration: underline; text-decoration-thicknes
 /* Product groups, as on affarts.ru: a product header, then a bento of the overview and its mini-cases. Requested by the owner. */
 .group { background: var(--paper); border-radius: var(--r); padding: 8px; }
 /* Groups are a third narrower than the page so the tiles read as compact previews, not full screens. Requested by the owner. */
-@media (min-width: 901px) { .group { width: min(100%, calc((100vw - 24px) / 1.5)); margin-inline: auto; } }
+@media (min-width: 901px) { .group, .work__head { width: min(100%, calc((100vw - 24px) / 1.5)); margin-inline: auto; } }
+/* 11.11 alen: one layout — «Кейсы», group heads and cards share one left line */
+.work__head { box-sizing: border-box; padding: 0 clamp(12px, 1.4vw, 20px); }
+@media (max-width: 900px) { .work__head { padding: 0 calc(8px + clamp(12px, 1.4vw, 20px)); } }
+.work > .cards .card > :not(.card__shot) { padding: 0 clamp(12px, 1.4vw, 20px); }
+@media (min-width: 901px) { .work > .cards { width: min(100%, calc((100vw - 24px) / 1.5 + 16px)); margin-inline: auto; } }
 .group + .group, .group + .cards { margin-top: var(--sp-4); }
 .group__head { display: flex; justify-content: space-between; align-items: end; gap: var(--sp-2); flex-wrap: wrap; padding: clamp(14px, 1.6vw, 22px) clamp(12px, 1.4vw, 20px) clamp(18px, 2.2vw, 32px); }
 .group__name { font-size: var(--s-lead); line-height: 1.2; letter-spacing: -0.02em; }

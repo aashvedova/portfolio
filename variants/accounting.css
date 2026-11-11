@@ -182,3 +182,28 @@ figure.inline figcaption { font-size: 13px; color: var(--mut); }
 .bstat:first-child b { color: #d6f05a; }
 .bstat span { color: var(--mut); font-size: 15px; line-height: 1.4; }
 @media (max-width: 900px) { .bstats { grid-template-columns: repeat(2, 1fr); } }
+
+/* 11.11: единый лейаут кейсов — строки .cside (тема слева, содержимое справа), медиа на всю ширину */
+.asec { display: block; border-top: 0; padding-top: 0; }
+.asec > * + * { margin-top: 48px; }
+.asec > .cside--sub { margin-top: 72px; border-top: 0; padding-top: 0; }
+.asec .cside__h .lbl { color: var(--dim); }
+.asec .cside .h2 { max-width: 14ch; }
+.asub { font-size: 20px; font-weight: 500; line-height: 1.25; }
+.cside__b .atext { gap: 16px; max-width: 62ch; }
+.cside__b .atext > .two-tone, .cside__b > .two-tone { font-size: clamp(22px, 2.2vw, 28px); line-height: 1.28; }
+.cside__b .atext .p { font-size: 16px; line-height: 1.6; }
+.cside__b .finds { grid-template-columns: repeat(2, 1fr); }
+.cside__b .decision dl { grid-template-columns: 1fr; }
+.cside__b .ares { display: block; }
+.cside__b .aledger { border-left: 0; padding-left: 0; }
+.cside__b .biz__note { margin: 0; }
+@media (max-width: 900px) {
+  .asec > * + * { margin-top: 32px; }
+  .asec > .cside--sub { margin-top: 48px; }
+  .cside__b .finds { grid-template-columns: 1fr; }
+}
+.asec > figure.inline, .asec > .shot, .asec > figure { margin-top: 48px; }
+.asec > .cside:first-child { margin-top: 0; }
+.cside__b .atext + .atext { margin-top: 0; }
+@media (max-width: 900px) { .asec > figure.inline, .asec > .shot, .asec > figure { margin-top: 32px; } }
