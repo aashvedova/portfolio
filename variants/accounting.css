@@ -207,3 +207,45 @@ figure.inline figcaption { font-size: 13px; color: var(--mut); }
 .asec > .cside:first-child { margin-top: 0; }
 .cside__b .atext + .atext { margin-top: 0; }
 @media (max-width: 900px) { .asec > figure.inline, .asec > .shot, .asec > figure { margin-top: 32px; } }
+
+/* 11.11 alen: вид как у календаря и карты (лейаут-кейсов.md, 1а) — белое и серое, без салатового и обводок */
+.biz__k--f { background: var(--card2); color: var(--mut); }
+.bstat:first-child b { color: var(--ink); }
+.hq--hot .hq__i { background: var(--ink); color: var(--bg); }
+.meth { background: var(--card); border: 0; }
+.meth__n { display: none; }
+.meth__top { margin-bottom: 10px; }
+.cside__b .crows { margin-top: 8px; }
+.cside__b .note { margin-top: 4px; }
+.cside__b .v10-2x2 .big { font-size: 44px; font-weight: 400; letter-spacing: -0.03em; line-height: 1; }
+.cside__b .v10-2x2 .card .p { color: var(--ink); font-size: 15px; }
+.apill { order: -1; font-size: 12px; font-weight: 400; padding: 4px 10px; border-radius: 999px; background: var(--card2); color: var(--mut); }
+.crow .ct:has(.apill) { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+.acc-hero { margin-top: 0; }
+.acc-stage { margin: 0; display: grid; gap: 12px; }
+.acc-stage figcaption { font-size: 13px; color: var(--mut); }
+.acc-stage .an-stage { background: #fff; }
+.acc-stage .an-stage img { height: auto; }
+.acc-stage .an-pin i { background: #141414; box-shadow: 0 0 0 5px rgba(20,20,20,.16); }
+.acc-stage .an-pin em { background: #141414; color: #fff; }
+.acc-stage--hero .an-stage { box-shadow: 0 40px 120px rgba(0,0,0,.6); }
+:root[data-theme="light"] .acc-stage--hero .an-stage { box-shadow: 0 30px 80px rgba(0,0,0,.12), inset 0 0 0 1px rgba(0,0,0,.12); }
+.acc-pult { margin: 0; display: grid; grid-template-columns: minmax(0, 440px) 1fr; gap: 56px; align-items: center; background: var(--panel); border-radius: var(--r); padding: clamp(20px, 4vw, 56px); }
+.acc-pult img { width: 100%; height: auto; border-radius: 16px; display: block; }
+.acc-pult figcaption { display: grid; gap: 12px; max-width: 40ch; }
+.acc-pult figcaption b { font-size: clamp(22px, 2.2vw, 28px); font-weight: 500; letter-spacing: -0.02em; line-height: 1.2; }
+.acc-pult figcaption span { color: var(--mut); font-size: 16px; line-height: 1.55; }
+.acc-zoom { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.acc-zoom .card { margin: 0; padding: 16px 16px 22px; gap: 16px; }
+.acc-zoom__pic { background: #fff; border-radius: 14px; height: 260px; display: grid; place-items: center; padding: 16px; overflow: hidden; }
+.acc-zoom__pic img { max-width: 100%; max-height: 100%; width: auto; height: auto; border: 0; }
+.acc-zoom figcaption { display: grid; gap: 6px; padding: 0 6px; }
+.acc-zoom figcaption b { font-size: 17px; font-weight: 500; color: var(--ink); }
+.acc-zoom figcaption span { font-size: 15px; color: var(--mut); line-height: 1.45; }
+figure.inline figcaption a { color: var(--ink); }
+@media (max-width: 900px) {
+  .acc-pult, .acc-zoom { grid-template-columns: 1fr; gap: 24px; }
+  .acc-pult img { max-width: 380px; margin: 0 auto; }
+  .crow { grid-template-columns: 1fr; gap: 10px; }
+}
+.acc-hero + .asec { margin-top: 120px; } @media (max-width: 900px) { .acc-hero + .asec { margin-top: 56px; } }
